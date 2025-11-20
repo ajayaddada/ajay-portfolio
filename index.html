@@ -1,999 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ajay Addada | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Portfolio of Ajay Addada - MS in CS @ NJIT | RAG | YOLOv8 | Deepfake | AI & Data Science"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajay Addada - MS CS @ NJIT | AI · ML · Data Science</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --card-radius: 18px;
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     body {
-      margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background-color: #eef2f5;
       line-height: 1.6;
+      color: #333;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track {
+      background: #d8dee9;
+      border-radius: 10px;
     }
-
-    /* Layout */
-
-    .wrapper {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 18px 16px 80px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(3, 7, 18, 0.92),
-        rgba(3, 7, 18, 0.7),
-        transparent
-      );
-      border-bottom: 1px solid rgba(31, 41, 55, 0.6);
-    }
-
-    .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 12px 16px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .logo-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: conic-gradient(
-        from 180deg,
-        #38bdf8,
-        #22c55e,
-        #a855f7,
-        #38bdf8
-      );
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 18px;
-      padding: 0;
-      margin: 0;
-      font-size: 14px;
-    }
-
-    nav a {
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      transition: all 0.18s ease-out;
-      border: 1px solid transparent;
-    }
-
-    nav a:hover {
-      color: var(--text);
-      border-color: rgba(56, 189, 248, 0.4);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    main {
-      margin-top: 16px;
-    }
-
-    section {
-      margin-top: 40px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      font-weight: 600;
-    }
-
-    h2 {
-      font-size: 22px;
-      margin-bottom: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section-pill {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .section-accent-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        position: static;
-      }
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-wrap: wrap;
-      }
-    }
-
-    /* Hero */
-
-    .hero-card {
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: 28px;
-      padding: 22px 20px;
-      border: 1px solid rgba(55, 65, 81, 0.7);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-chip-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .chip {
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .hero-title {
-      font-size: 30px;
-      margin-top: 4px;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .hero-title span.accent {
-      color: var(--accent);
-      text-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 550px;
-      margin-top: 6px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 13px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.18s ease-out;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at top left, #38bdf8, #0ea5e9);
-      border-color: rgba(56, 189, 248, 0.7);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
-      color: #020617;
-      font-weight: 600;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.6);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(75, 85, 99, 0.9);
-      background: rgba(15, 23, 42, 1);
-    }
-
-    .hero-meta {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--muted);
-    }
-
-    .hero-orbit {
-      position: absolute;
-      right: -40px;
-      bottom: -40px;
-      width: 220px;
-      height: 220px;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .hero-orbit-inner {
-      width: 125px;
-      height: 125px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #1e293b, #020617);
-      box-shadow: 0 0 40px rgba(15, 23, 42, 0.9);
-    }
-
-    .hero-avatar {
-      width: 74px;
-      height: 74px;
-      border-radius: 999px;
-      border: 2px solid rgba(56, 189, 248, 0.8);
-      overflow: hidden;
-      background: radial-gradient(circle at top left, #38bdf8, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .hero-badge {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      color: var(--muted);
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    .badge-pill {
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    /* Right hero card */
-
-    .side-card {
-      background: radial-gradient(circle at top right, #020617, #020617);
-      border-radius: 24px;
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      padding: 18px 18px 16px;
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.65);
-    }
-
-    .side-card h3 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 14px;
-      font-size: 11px;
-    }
-
-    .skill-tags span {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.85);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-    }
-
-    .side-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      font-size: 11px;
-    }
-
-    .metric {
-      padding: 8px 9px;
-      border-radius: 14px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .metric-label {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .metric-value {
-      margin-top: 3px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #e5e7eb;
+    ::-webkit-scrollbar-thumb {
+      background: #8892b0;
+      border-radius: 10px;
     }
-
-    .metric-caption {
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    /* About & Experience */
-
-    .card {
-      background: rgba(15, 23, 42, 0.94);
-      border-radius: var(--card-radius);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 16px 18px;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-      gap: 16px;
-      margin-top: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .split {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .timeline-item {
-      padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      font-size: 12px;
-    }
-
-    .timeline-role {
-      font-weight: 500;
-      font-size: 12px;
-    }
-
-    .timeline-meta {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .timeline-bullets {
-      margin-top: 5px;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 11.5px;
-    }
-
-    /* Projects */
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-      margin-top: 8px;
+    ::-webkit-scrollbar-thumb:hover {
+      background: #626a84;
     }
 
-    .project-card {
-      border-radius: 18px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: radial-gradient(circle at top, #111827, #020617);
-      padding: 14px 14px 12px;
-      font-size: 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    .project-title {
-      font-size: 13px;
-      font-weight: 500;
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
-    .project-tags span {
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(31, 41, 55, 0.9);
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
     }
 
-    .project-links {
-      margin-top: 6px;
-      display: flex;
-      gap: 10px;
-      font-size: 11px;
-    }
+    .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+    .animate-slide-up { animation: fadeIn 1s ease-out forwards; }
+    .animate-float { animation: float 4s ease-in-out infinite; }
 
-    .project-links a {
-      color: var(--accent);
+    /* Cards */
+    .card-shadow-base {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
     }
-
-    /* Links / contact */
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 12px;
-      margin-top: 8px;
+    .card-shadow-hover:hover {
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .link-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    /* Section transition */
+    .section-transition {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.7s ease-out;
     }
-
-    .link-pill strong {
-      color: var(--text);
-      font-weight: 500;
+    .section-transition.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 11px;
-      color: var(--muted);
-      text-align: center;
-      padding-top: 12px;
-      border-top: 1px solid rgba(31, 41, 55, 0.8);
+    .hero-overlay {
+      background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
     }
   </style>
 </head>
-<body>
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav-inner">
-      <div class="logo">
-        <span class="logo-dot"></span>
-        <span>Ajay Addada</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <!-- Resume file in same repo -->
-            <a href="Ajay_Addada_Resume.pdf" target="_blank">Resume</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+<body class="text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="bg-white shadow-xl py-4 px-6 fixed w-full z-20 rounded-b-xl border-b border-gray-100">
+    <nav class="container mx-auto flex justify-between items-center max-w-7xl">
+      <a href="#home" class="text-3xl font-extrabold text-blue-700 hover:text-blue-900 transition-colors duration-300">
+        Ajay Portfolio
+      </a>
+      <ul class="flex flex-wrap space-x-4 md:space-x-8 text-lg">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- MAIN -->
-  <div class="wrapper">
-    <!-- HERO -->
-    <main>
-      <section id="top">
-        <div class="grid">
-          <div>
-            <article class="hero-card">
-              <div class="hero-chip-row">
-                <span class="chip">MS in CS @ NJIT</span>
-                <span class="chip">RAG · YOLOv8 · Deepfake</span>
-                <span class="chip">AI · ML · Data Science</span>
-              </div>
+  <style>
+    .nav-link {
+      position: relative;
+      color: #4b5563;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #1d4ed8;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #1d4ed8;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+  </style>
 
-              <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                <span>Open to Opportunities</span>
-                <span class="badge-pill">Internship · Part-time · Full-time</span>
-              </div>
+  <main class="pt-24">
+    <!-- Home -->
+    <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-br from-blue-700 to-purple-800 text-white rounded-b-3xl relative overflow-hidden hero-overlay">
+      <!-- floating blobs -->
+      <div class="absolute w-80 h-80 bg-white bg-opacity-5 rounded-full blur-3xl opacity-70 animate-float top-1/4 left-1/4"></div>
+      <div class="absolute w-60 h-60 bg-white bg-opacity-5 rounded-full blur-3xl opacity-70 animate-float bottom-1/4 right-1/4" style="animation-delay: 2s;"></div>
+      <div class="absolute w-40 h-40 bg-white bg-opacity-5 rounded-full blur-3xl opacity-70 animate-float top-1/2 left-1/3" style="animation-delay: 1s;"></div>
 
-              <h1 class="hero-title">
-                Hi, I'm <span class="accent">Ajay Addada</span>
-              </h1>
-              <div class="hero-subtitle">
-                <strong>MS in Computer Science @ NJIT · Data & AI Engineer in progress</strong>
-                – I build practical AI systems like RAG chatbots, YOLOv8 object detection,
-                and deepfake detection, and use data to solve real-world problems in
-                security, automation, and decision-making.
-              </div>
-
-              <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View projects</a>
-                <a href="#experience" class="btn btn-ghost">
-                  See my experience
-                </a>
-              </div>
-
-              <div class="hero-meta">
-                <span>
-                  <span class="hero-meta-dot"></span>
-                  MS CS · GPA 3.8 · NJIT
-                </span>
-                <span>
-                  <span class="hero-meta-dot"></span>
-                  Based in New York / New Jersey
-                </span>
-                <span>
-                  <span class="hero-meta-dot"></span>
-                  Focus: AI, Computer Vision, RAG, Data Analytics
-                </span>
-              </div>
-
-              <div class="hero-orbit">
-                <div class="hero-orbit-inner">
-                  <div class="hero-avatar">
-                    AA
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div>
-            <aside class="side-card">
-              <h3>Core Skill Stack</h3>
-              <div class="skill-tags">
-                <span>Python</span>
-                <span>R</span>
-                <span>SQL</span>
-                <span>Java</span>
-                <span>C++</span>
-                <span>Power BI</span>
-                <span>Tableau</span>
-                <span>Excel</span>
-                <span>TensorFlow</span>
-                <span>PyTorch</span>
-                <span>YOLOv8</span>
-                <span>RAG · LLMs</span>
-                <span>Databricks</span>
-                <span>PySpark</span>
-                <span>Azure · AWS</span>
-              </div>
-              <div class="side-metrics">
-                <div class="metric">
-                  <div class="metric-label">Experience</div>
-                  <div class="metric-value">2+ yrs</div>
-                  <div class="metric-caption">
-                    Data analysis & AI projects
-                  </div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Strengths</div>
-                  <div class="metric-value">Data → Insight</div>
-                  <div class="metric-caption">
-                    Cleaning, modeling, visualization
-                  </div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Education</div>
-                  <div class="metric-value">MS CS</div>
-                  <div class="metric-caption">
-                    New Jersey Institute of Technology
-                  </div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Tools</div>
-                  <div class="metric-caption">
-                    Jupyter · Git · dbt · Alteryx · ETL pipelines
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
+      <div class="text-center p-8 relative z-10">
+        <!-- TODO: replace profile.jpg with your real image file name -->
+        <img src="profile.jpg" alt="Ajay Addada profile picture"
+             class="rounded-full mx-auto mb-8 border-8 border-white shadow-2xl animate-fade-in"
+             style="width: 180px; height: 180px; object-fit: cover;">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight animate-fade-in">
+          Hi, I'm Ajay Addada!
+        </h1>
+        <p class="text-2xl md:text-3xl mb-10 font-light animate-slide-up">
+          MS in Computer Science @ NJIT · RAG · YOLOv8 · Deepfake · AI / ML / Data Science
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-slide-up">
+          <a href="#projects"
+             class="bg-white text-blue-700 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+            View My Work
+            <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
+          </a>
+          <a href="#contact"
+             class="border-2 border-white text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+            Get in Touch
+            <i class="fas fa-paper-plane ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <span class="section-pill">Overview</span>
-        <h2>
-          <span class="section-accent-dot"></span>
-          About Me
-        </h2>
-        <div class="card">
+    <!-- About -->
+    <section id="about" class="py-20 bg-white rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 px-6 md:px-12 section-transition">
+      <div class="container mx-auto text-center">
+        <h2 class="text-5xl font-extrabold mb-14 text-blue-800">About Me</h2>
+        <div class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 space-y-6">
           <p>
-            I’m a <strong>Computer Science graduate student at NJIT</strong> with a
-            strong focus on <strong>AI, Machine Learning, and Data Analytics</strong>.
-            I enjoy building end-to-end solutions: from collecting and cleaning data
-            to deploying models that solve real problems like information retrieval,
-            object detection, and media verification.
+            I’m <span class="font-semibold text-blue-700">Ajay Addada</span>, a
+            <strong>Computer Science graduate student at NJIT</strong>, focusing on
+            <strong>AI, Machine Learning, Deep Learning, Computer Vision, and Data Analytics</strong>.
           </p>
-          <p style="margin-top: 10px;">
-            My recent work includes <strong>RAG-based chatbots</strong> for
-            document Q&A, <strong>YOLOv8 pipelines</strong> for real-time object
-            detection, and a <strong>deepfake detection system</strong> using
-            deep learning. I like projects where AI makes workflows more reliable,
-            faster, and easier for people to use.
+          <p>
+            I enjoy building end-to-end solutions: from data collection and cleaning,
+            to training models and exposing them through simple, usable interfaces.
+            Recently I’ve worked on <strong>RAG-based chatbots</strong>,
+            <strong>YOLOv8 object detection pipelines</strong>, and a
+            <strong>deepfake detection system</strong> that classifies media
+            as real or fake.
+          </p>
+          <p>
+            My goal is to use AI to solve practical problems—especially in automation,
+            security, and decision support—while keeping things explainable and
+            easy to maintain for teams who use them.
           </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <span class="section-pill">Background</span>
-        <h2>
-          <span class="section-accent-dot"></span>
-          Experience
-        </h2>
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-gray-100 rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 p-12 section-transition">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-extrabold text-center mb-14 text-blue-800">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        <div class="split">
-          <div class="card">
-            <h3 style="font-size: 14px; margin-bottom: 8px;">Recent Roles</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-role">
-                  Student Office Assistant – New Jersey Institute of Technology
-                </div>
-                <div class="timeline-meta">
-                  Newark, NJ · Mar 2025 – Present
-                </div>
-                <ul class="timeline-bullets">
-                  <li>
-                    Maintain and organize 1,000+ academic and operational records using Excel and Access.
-                  </li>
-                  <li>
-                    Build automated spreadsheet workflows, improving reporting accuracy and efficiency.
-                  </li>
-                  <li>
-                    Support data-driven tracking for events and documentation to keep office operations smooth.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-role">
-                  Data Analyst – GeekBull Consulting
-                </div>
-                <div class="timeline-meta">
-                  Hyderabad, India · 2023 – 2024
-                </div>
-                <ul class="timeline-bullets">
-                  <li>
-                    Collected, cleaned, and analyzed large datasets with Python (Pandas, NumPy) and SQL to
-                    improve reporting accuracy.
-                  </li>
-                  <li>
-                    Designed automated Power BI dashboards that reduced manual reporting time and enabled
-                    better client performance tracking.
-                  </li>
-                  <li>
-                    Built predictive models to understand churn patterns and support data-driven product
-                    and marketing decisions.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="font-size: 14px; margin-bottom: 8px;">Education & Focus</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-role">
-                  M.S. in Computer Science – New Jersey Institute of Technology
-                </div>
-                <div class="timeline-meta">
-                  Newark, NJ · 2024 – 2026 · GPA: 3.8
-                </div>
-                <ul class="timeline-bullets">
-                  <li>
-                    Coursework and projects in AI, Machine Learning, Deep Learning, Big Data, and Data Engineering.
-                  </li>
-                  <li>
-                    Hands-on work with Databricks, PySpark, TensorFlow, and cloud data platforms.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-role">
-                  Current Interests
-                </div>
-                <ul class="timeline-bullets">
-                  <li>
-                    Retrieval-Augmented Generation (RAG) systems for document-heavy domains.
-                  </li>
-                  <li>
-                    Computer vision for real-time detection and safety applications.
-                  </li>
-                  <li>
-                    Deepfake and media authenticity detection for cybersecurity and trust.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects">
-        <span class="section-pill">Selected Work</span>
-        <h2>
-          <span class="section-accent-dot"></span>
-          Projects
-        </h2>
-
-        <div class="project-grid">
           <!-- RAG Chatbot -->
-          <article class="project-card">
-            <div class="project-title">
-              Retrieval-Augmented Generation (RAG) Chatbot
+          <div class="bg-white rounded-xl card-shadow-base overflow-hidden hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <img src="https://placehold.co/400x250/e0e0e0/333333?text=RAG+Chatbot" alt="RAG Chatbot" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                RAG Chatbot – Document Question Answering
+              </h3>
+              <p class="text-gray-600 mb-4 text-md">
+                Built a Retrieval-Augmented Generation (RAG) chatbot that allows
+                users to upload PDFs or text documents and ask natural-language
+                questions. The system retrieves relevant chunks and uses an LLM
+                to generate grounded answers.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                <span class="bg-green-200 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">RAG</span>
+                <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">FAISS / Vector DB</span>
+              </div>
+              <a href="https://github.com/ajayaddada" target="_blank" class="text-blue-700 font-semibold hover:underline">
+                GitHub Repo (update link)
+              </a>
             </div>
-            <div style="color: var(--muted); font-size: 12px;">
-              Built an intelligent chatbot that reads and answers questions from uploaded
-              documents using RAG. Designed for internal knowledge bases, policy lookup,
-              and support teams that need fast, accurate answers from PDFs and text files.
-            </div>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>Streamlit</span>
-              <span>FAISS</span>
-              <span>RAG · LLMs</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/ajayaddada/RAG-chatbot" target="_blank">GitHub</a>
-            </div>
-          </article>
+          </div>
 
           <!-- YOLOv8 Object Detection -->
-          <article class="project-card">
-            <div class="project-title">
-              Real-Time Object Detection with YOLOv8
-            </div>
-            <div style="color: var(--muted); font-size: 12px;">
-              Developed a real-time computer vision pipeline using YOLOv8 and OpenCV to
-              detect and label objects from webcam feeds. Applicable to surveillance,
-              traffic monitoring, and warehouse automation for safety and tracking.
-            </div>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>YOLOv8</span>
-              <span>OpenCV</span>
-              <span>Computer Vision</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/ajayaddada/yolov8-object-detection" target="_blank">
-                GitHub
+          <div class="bg-white rounded-xl card-shadow-base overflow-hidden hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <img src="https://placehold.co/400x250/e0e0e0/333333?text=YOLOv8+Detection" alt="YOLOv8 Project" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                Real-Time Object Detection with YOLOv8
+              </h3>
+              <p class="text-gray-600 mb-4 text-md">
+                Implemented a real-time object detection pipeline using YOLOv8 and
+                OpenCV for live webcam and video input. Useful for safety monitoring,
+                traffic analysis, or inventory & asset tracking.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                <span class="bg-green-200 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">YOLOv8</span>
+                <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">OpenCV</span>
+              </div>
+              <a href="https://github.com/ajayaddada" target="_blank" class="text-blue-700 font-semibold hover:underline">
+                GitHub Repo (update link)
               </a>
             </div>
-          </article>
+          </div>
 
           <!-- Deepfake Detection -->
-          <article class="project-card">
-            <div class="project-title">
-              Deepfake Detection System
-            </div>
-            <div style="color: var(--muted); font-size: 12px;">
-              Created a deep learning model to classify images as real or deepfake with
-              high accuracy, helping organizations verify digital media and prevent
-              fraud and misinformation.
-            </div>
-            <div class="project-tags">
-              <span>PyTorch</span>
-              <span>Transformers</span>
-              <span>Gradio</span>
-              <span>Deep Learning</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/ajayaddada/Deepfake-Detection" target="_blank">
-                GitHub
+          <div class="bg-white rounded-xl card-shadow-base overflow-hidden hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <img src="https://placehold.co/400x250/e0e0e0/333333?text=Deepfake+Detection" alt="Deepfake Detection" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                Deepfake Detection System
+              </h3>
+              <p class="text-gray-600 mb-4 text-md">
+                Built a deep learning model to classify images or video frames as
+                real or manipulated. Focused on robust training, evaluation, and
+                a simple UI so non-technical users can quickly verify media.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">PyTorch / TensorFlow</span>
+                <span class="bg-green-200 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Computer Vision</span>
+                <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">CNN</span>
+              </div>
+              <a href="https://github.com/ajayaddada" target="_blank" class="text-blue-700 font-semibold hover:underline">
+                GitHub Repo (update link)
               </a>
             </div>
-          </article>
+          </div>
 
-          <!-- Course / Analytics Project Example -->
-          <article class="project-card">
-            <div class="project-title">
-              Data Engineering & Analytics (IS601 Projects)
+          <!-- Data Engineering / IS601 -->
+          <div class="bg-white rounded-xl card-shadow-base overflow-hidden hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <img src="https://placehold.co/400x250/e0e0e0/333333?text=Data+Engineering" alt="Data Engineering Projects" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                Data Engineering & Analytics (Course Projects)
+              </h3>
+              <p class="text-gray-600 mb-4 text-md">
+                Designed reproducible Python-based analytics projects focusing on
+                clean code, testing, and documentation. Worked with data pipelines,
+                ETL, and visualization for real-world style datasets.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                <span class="bg-green-200 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">ETL</span>
+                <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">Unit Testing</span>
+              </div>
+              <div class="flex space-x-4 mt-2">
+                <a href="https://github.com/ajayaddada" target="_blank" class="text-blue-700 font-semibold hover:underline">
+                  GitHub Projects
+                </a>
+              </div>
             </div>
-            <div style="color: var(--muted); font-size: 12px;">
-              Worked on Python-based analytics and engineering projects as part of
-              coursework, focusing on clean code, testing, and reproducible data workflows.
-            </div>
-            <div class="project-tags">
-              <span>Python</span>
-              <span>Data Pipelines</span>
-              <span>ETL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/ajayaddada/IS601_midterm_project" target="_blank">
-                Midterm Project
-              </a>
-              <a href="https://github.com/ajayaddada/IS601_Final_Project" target="_blank">
-                Final Project
-              </a>
-            </div>
-          </article>
+          </div>
+
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CONTACT -->
-      <section id="contact">
-        <span class="section-pill">Connect</span>
-        <h2>
-          <span class="section-accent-dot"></span>
-          Contact & Links
+    <!-- Education -->
+    <section id="education" class="py-20 bg-gray-100 rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 p-12 section-transition">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-extrabold text-center mb-14 text-blue-800">
+          Education
         </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="bg-white p-8 rounded-xl card-shadow-base hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Master of Science in Computer Science
+            </h3>
+            <p class="text-xl text-gray-700 mb-1">
+              New Jersey Institute of Technology
+            </p>
+            <p class="text-md text-gray-500">
+              Newark, New Jersey, USA · 2024 – 2026 (expected)
+            </p>
+            <p class="text-md text-gray-500 mt-2">
+              Focus: AI, Machine Learning, Deep Learning, Data Engineering, Big Data.
+            </p>
+          </div>
 
-        <div class="card">
-          <p>
-            If you’d like to talk about AI, machine learning, data analytics, or
-            potential roles and projects, feel free to reach out. I’m open to
-            collaborations, internships, and full-time opportunities.
-          </p>
-
-          <div class="link-row">
-            <a class="link-pill" href="mailto:ajayvarma.addada2001@gmail.com">
-              <strong>Email:</strong> ajayvarma.addada2001@gmail.com
-            </a>
-            <a
-              class="link-pill"
-              href="https://www.linkedin.com/in/ajay-addada-b0962b385"
-              target="_blank"
-            >
-              <strong>LinkedIn</strong> · /ajay-addada-b0962b385
-            </a>
-            <a
-              class="link-pill"
-              href="https://github.com/ajayaddada"
-              target="_blank"
-            >
-              <strong>GitHub</strong> · @ajayaddada
-            </a>
+          <div class="bg-white p-8 rounded-xl card-shadow-base hover:card-shadow-hover transition-all duration-300 transform hover:-translate-y-3 border border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Bachelor of Technology in Computer Science Engineering
+            </h3>
+            <p class="text-xl text-gray-700 mb-1">
+              (Update with your university name)
+            </p>
+            <p class="text-md text-gray-500">
+              India · Year – Year
+            </p>
+            <p class="text-md text-gray-500 mt-2">
+              Core CS foundation: Data Structures, Algorithms, DBMS, OS, Web Technologies.
+            </p>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      © <span id="year"></span> Ajay Addada · Portfolio
-    </footer>
-  </div>
+    <!-- Skills -->
+    <section id="skills" class="py-20 bg-gray-100 rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 p-12 section-transition">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-extrabold text-center mb-14 text-blue-800">My Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+          <!-- Languages -->
+          <div class="skill-card">
+            <i class="fab fa-python text-6xl text-blue-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Python</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-database text-6xl text-gray-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">SQL</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-code text-6xl text-gray-500 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Java / C++</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-html5 text-6xl text-orange-500 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">HTML & CSS</h3>
+          </div>
+
+          <!-- ML / AI -->
+          <div class="skill-card">
+            <i class="fas fa-brain text-6xl text-purple-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">TensorFlow / PyTorch</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-robot text-6xl text-teal-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Scikit-learn</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-language text-6xl text-pink-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">NLP & RAG</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-video text-6xl text-indigo-600 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Computer Vision · YOLOv8</h3>
+          </div>
+
+          <!-- Data / BI -->
+          <div class="skill-card">
+            <i class="fas fa-chart-bar text-6xl text-blue-700 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Power BI / Tableau</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-database text-6xl text-green-700 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Databricks · PySpark</h3>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-card">
+            <i class="fas fa-terminal text-6xl text-gray-700 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">Git & GitHub</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-code text-6xl text-blue-400 mb-4 animate-pulse"></i>
+            <h3 class="skill-title">VS Code · Jupyter</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .skill-card {
+        background-color: #f9fafb;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        text-align: center;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+        transition: all 0.3s;
+        transform: translateY(0);
+      }
+      .skill-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+      }
+      .skill-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #111827;
+      }
+    </style>
+
+    <!-- Resume -->
+    <section id="resume" class="py-20 bg-white rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 p-12 text-center section-transition">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-extrabold text-center mb-14 text-blue-800">View My Resume</h2>
+        <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
+          Access my detailed experience, education, and skills in a single PDF.
+          Click below to open or download my resume.
+        </p>
+        <!-- Make sure the file name matches exactly in the repo -->
+        <a href="Ajay_Addada_Resume.pdf" target="_blank"
+           class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center group">
+          <i class="fas fa-file-pdf mr-3 group-hover:scale-110 transition-transform duration-300"></i>
+          View Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-100 rounded-2xl shadow-2xl mx-auto max-w-6xl my-16 p-12 section-transition">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-extrabold text-center mb-14 text-blue-800">Get in Touch</h2>
+        <div class="flex flex-col md:flex-row items-start md:space-x-12">
+          <div class="md:w-1/2 mb-10 md:mb-0 text-lg text-gray-700">
+            <p class="mb-6">
+              I’m open to opportunities in AI, ML, data science, and software
+              engineering. If you’d like to collaborate, discuss a project, or
+              just say hi, feel free to reach out.
+            </p>
+            <div class="space-y-4">
+              <p class="flex items-center text-xl">
+                <i class="fas fa-envelope mr-4 text-blue-700 text-2xl"></i>
+                <a href="mailto:ajayvarma.addada2001@gmail.com" class="text-blue-700 hover:underline">
+                  ajayvarma.addada2001@gmail.com
+                </a>
+              </p>
+              <p class="flex items-center text-xl">
+                <i class="fas fa-map-marker-alt mr-4 text-blue-700 text-2xl"></i>
+                Newark, New Jersey, USA
+              </p>
+            </div>
+            <div class="flex space-x-7 mt-10">
+              <a href="https://github.com/ajayaddada" target="_blank"
+                 class="text-gray-700 hover:text-blue-700 transition-colors duration-300 text-4xl transform hover:scale-110">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/ajay-addada-b0962b385" target="_blank"
+                 class="text-gray-700 hover:text-blue-700 transition-colors duration-300 text-4xl transform hover:scale-110">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 w-full">
+            <form onsubmit="return handleContactFormSubmit(event)"
+                  class="bg-white p-10 rounded-xl shadow-2xl border border-gray-200">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 text-base font-semibold mb-2">
+                  Name
+                </label>
+                <input type="text" id="name" name="name"
+                       class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
+                       placeholder="Your Name" required>
+              </div>
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 text-base font-semibold mb-2">
+                  Email
+                </label>
+                <input type="email" id="email" name="email"
+                       class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
+                       placeholder="your.email@example.com" required>
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 text-base font-semibold mb-2">
+                  Message
+                </label>
+                <textarea id="message" name="message" rows="7"
+                          class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-y transition-all duration-200"
+                          placeholder="Your message..." required></textarea>
+              </div>
+              <button type="submit"
+                      class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-75 transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10 rounded-t-xl">
+    <div class="container mx-auto text-center px-6">
+      <p class="text-lg mb-4">
+        &copy; <span id="current-year"></span> Ajay Addada. All rights reserved.
+      </p>
+      <div class="flex justify-center space-x-8 mt-4">
+        <a href="https://github.com/ajayaddada" target="_blank"
+           class="text-gray-400 hover:text-white transition-colors duration-300 text-3xl transform hover:scale-110">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ajay-addada-b0962b385" target="_blank"
+           class="text-gray-400 hover:text-white transition-colors duration-300 text-3xl transform hover:scale-110">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // Dynamic year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+        const headerOffset = document.querySelector('header').offsetHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset - 20;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Intersection Observer for fade-in sections
+    const sections = document.querySelectorAll('section');
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      if (section.id !== 'home') section.classList.add('section-transition');
+      sectionObserver.observe(section);
+    });
+
+    // Contact form: open mail client
+    function handleContactFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) return false;
+
+      const subject = encodeURIComponent(`Message from your portfolio - ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      const mailtoLink = `mailto:ajayvarma.addada2001@gmail.com?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+      alert("Your email client should now open. If it doesn't, you can email me directly at: ajayvarma.addada2001@gmail.com");
+      event.target.reset();
+      return false;
+    }
   </script>
 </body>
 </html>
